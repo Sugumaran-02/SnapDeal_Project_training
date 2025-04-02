@@ -9,13 +9,13 @@ test.describe.only('Verify that the user is able to add the product into cart', 
     await And('the user enter the product detail in search box', null, { homepage }); 
     await Then('the user clicks on the search button', null, { homepage }); 
     await And('the user select the one wallet', null, { walletpage }); 
+    await Then('the user add the wallet into Add to cart'); 
   });
 
 });
 
 // == technical section ==
 
-test.beforeAll('BeforeAll Hooks', ({ $runBeforeAllHooks }) => $runBeforeAllHooks(test, {  }, bddFileData));
 test.afterAll('AfterAll Hooks', ({ $registerAfterAllHooks }) => $registerAfterAllHooks(test, {  }, bddFileData));
 test.beforeEach('BeforeEach Hooks', ({ $beforeEach }) => {});
 test.afterEach('AfterEach Hooks', ({ $afterEach }) => {});
@@ -29,5 +29,5 @@ test.use({
 });
 
 const bddFileData = [ // bdd-data-start
-  {"pwTestLine":6,"pickleLine":4,"tags":["@only"],"steps":[{"pwStepLine":7,"gherkinStepLine":6,"keywordType":"Context","textWithKeyword":"Given the user is on the Snapdeal homepage","stepMatchArguments":[]},{"pwStepLine":8,"gherkinStepLine":7,"keywordType":"Action","textWithKeyword":"When the homepage is loaded properly","stepMatchArguments":[]},{"pwStepLine":9,"gherkinStepLine":8,"keywordType":"Action","textWithKeyword":"And the user enter the product detail in search box","stepMatchArguments":[]},{"pwStepLine":10,"gherkinStepLine":9,"keywordType":"Outcome","textWithKeyword":"Then the user clicks on the search button","stepMatchArguments":[]},{"pwStepLine":11,"gherkinStepLine":10,"keywordType":"Outcome","textWithKeyword":"And the user select the one wallet","stepMatchArguments":[]}]},
+  {"pwTestLine":6,"pickleLine":4,"tags":["@only"],"steps":[{"pwStepLine":7,"gherkinStepLine":6,"keywordType":"Context","textWithKeyword":"Given the user is on the Snapdeal homepage","stepMatchArguments":[]},{"pwStepLine":8,"gherkinStepLine":7,"keywordType":"Action","textWithKeyword":"When the homepage is loaded properly","stepMatchArguments":[]},{"pwStepLine":9,"gherkinStepLine":8,"keywordType":"Action","textWithKeyword":"And the user enter the product detail in search box","stepMatchArguments":[]},{"pwStepLine":10,"gherkinStepLine":9,"keywordType":"Outcome","textWithKeyword":"Then the user clicks on the search button","stepMatchArguments":[]},{"pwStepLine":11,"gherkinStepLine":10,"keywordType":"Outcome","textWithKeyword":"And the user select the one wallet","stepMatchArguments":[]},{"pwStepLine":12,"gherkinStepLine":11,"keywordType":"Outcome","textWithKeyword":"Then the user add the wallet into Add to cart","stepMatchArguments":[]}]},
 ]; // bdd-data-end

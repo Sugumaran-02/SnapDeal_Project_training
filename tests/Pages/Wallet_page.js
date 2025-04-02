@@ -1,4 +1,5 @@
 import { expect } from "@playwright/test";
+import { productpage } from "./Product_page"; 
 
 export class wallet_Page{
 
@@ -8,9 +9,25 @@ constructor(page){
 }
 
 async select_wallet(){
-    await this.wallet.waitFor({state : "visible"});
-    await this.wallet.click();
+    const [newPage] = await Promise.all([
+        this.page.context().waitForEvent('page'), // Wait for new tab
+        this.wallet.click() // Click action that opens a new window
+    ]);
+    
+    await newPage.waitForLoadState(); // Ensure the new page is fully loaded
+    return new productpage(newPage); // Return an instance of the product page
+}
 
+
+async clickNewWindowLink() {
+    const [newPage] = await Promise.all([
+        this.page.context().waitForEvent('page'), // Wait for new tab
+        this.wallet.click() // Click action that opens a new window
+    ]);
+    
+    await newPage.waitForLoadState(); // Ensure the new page is fully loaded
+    return new productpage(newPage); // Return an instance of the product page
 }
 
 }
+

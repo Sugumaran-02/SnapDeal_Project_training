@@ -1,10 +1,13 @@
 import {expect } from "playwright/test";
+const { chromium } = require('playwright');
 
 
 export class Homepage{
 
     constructor(page){
 this.page=page;
+this.browser;
+this.context;
 this.Account_Tab= page.locator("//span[contains(text(),'Sign In')]");
 this.Search_box= page.getByPlaceholder('Search products & brands');
 this.Search_button= page.locator('//*[@id="sdHeader"]/div[4]/div[2]/div/div[2]/button');
@@ -22,6 +25,9 @@ this.notnow=page.getByRole('button', { name: 'NOT NOW' })
     }
 
     async goto_page(){
+        // const browser = await chromium.launch({ headless: false });
+        // const context = await browser.newContext();
+        // const page = await context.newPage();
         await this.page.goto("https://www.snapdeal.com/");
 
         // await this.page.goto("https://www.snapdeal.com/", 

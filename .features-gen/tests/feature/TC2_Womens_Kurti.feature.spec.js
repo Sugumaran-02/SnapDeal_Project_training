@@ -15,7 +15,6 @@ test.describe('Verify that the user is able to search for a Kurti product', () =
 
 // == technical section ==
 
-test.beforeAll('BeforeAll Hooks', ({ $runBeforeAllHooks }) => $runBeforeAllHooks(test, {  }, bddFileData));
 test.afterAll('AfterAll Hooks', ({ $registerAfterAllHooks }) => $registerAfterAllHooks(test, {  }, bddFileData));
 test.beforeEach('BeforeEach Hooks', ({ $beforeEach }) => {});
 test.afterEach('AfterEach Hooks', ({ $afterEach }) => {});
