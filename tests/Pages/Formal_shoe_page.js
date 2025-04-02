@@ -59,6 +59,8 @@ async waitgetprice(){
     await this.priceDownHandle.waitFor({ state: 'visible' });
 }
 
-
+async funforgit(){
+console.log("Just to commit")
+}
 
 }
