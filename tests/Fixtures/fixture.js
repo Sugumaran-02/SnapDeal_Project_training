@@ -1,0 +1,38 @@
+import {test as base} from "playwright-bdd"
+
+import * as Pages from "./pages"
+
+const {Homepage, womensfashion, formalshoes_page, sunglass_page, wallet_Page} =Pages
+
+const createtestfunction= (pageclass) => async ({page}, use) =>{
+    await use(new pageclass(page));
+}
+
+export const test= base.extend({
+    homepage: createtestfunction(Homepage),
+    womensfashionpage: createtestfunction(womensfashion),
+    formalshoepage: createtestfunction(formalshoes_page),
+    sunglasspage: createtestfunction(sunglass_page),
+    walletpage: createtestfunction(wallet_Page)
+
+})
+
+
+
+
+
+// import { test as base  } from "playwright-bdd";
+
+// import * as Pages from './Pages'
+
+// const {Loginpage, Dashboardpage }= Pages
+
+// const createtestfunction= (pageclass) => async ({page}, use) =>{
+//     await use(new pageclass(page));
+// }
+
+
+// export const test= base.extend({
+//     loginPage: createtestfunction(Loginpage),
+//     dashboard: createtestfunction(Dashboardpage)
+// });

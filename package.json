@@ -1,0 +1,17 @@
+{
+  "name": "snapdeal_training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {  "test1": "cucumber-js", 
+  "test": "npx bddgen && npx playwright test --headed"},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.14",
+    "playwright-bdd": "^8.2.1"
+  }
+}

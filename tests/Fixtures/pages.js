@@ -1,0 +1,5 @@
+export * from '../Pages/Home_page'
+export * from '../Pages/Womens_Fashion_page'
+export * from '../Pages/Formal_shoe_page'
+export * from '../Pages/Sunglasses_page'
+export * from '../Pages/Wallet_page'
