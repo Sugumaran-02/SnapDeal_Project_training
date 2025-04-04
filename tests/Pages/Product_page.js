@@ -13,7 +13,7 @@ this.checkavailability=page.locator('//div[@class="pin-checked"]//following::p[@
 }
 
 async checkpincode(){
-    this.page.pause();
+    
  await   this.pincode.fill("624204")
 await   this.pincode_check_button.click();
   }
@@ -25,11 +25,11 @@ async getNewWindowText(selector) {
 async verify_availability(){
 
 
-//   const availability_status=  this.checkavailability.innerText();
-//    console.log("The Availablity status is"+ availability_status);
-//    expect(availability_status).toContain("Item is available at")
+  const availability_status1=await  this.checkavailability.innerText();
+   console.log("The Availablity status is"+ availability_status1);
+   expect(availability_status1).toContain("Item is available at")
 
-    expect(this.checkavailability).toBeVisible()
+   // expect(this.checkavailability).toBeVisible()
    
 }
 
