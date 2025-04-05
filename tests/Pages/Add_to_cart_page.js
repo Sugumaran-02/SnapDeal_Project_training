@@ -20,11 +20,7 @@ async verify_product_add(){
 
 async viewCart_click(){
  
-    const element2= this.frame1.locator('//*[@id="cartProductContainer"]/div/div[2]/div[2]/div/div[2]/div').click();
-
-    await expect(element2).toBeEnabled()
-//   await this.viewCart_option.waitFor({state : 'hidden'})
-//   await this.viewCart_option.locator('//*[@id="cartProductContainer"]/div/div[2]/div[2]/div/div[2]/div').click({ force: true })
+   await this.viewCart_option.click();
  }
 
  async check01(){
@@ -41,7 +37,15 @@ async viewCart_click(){
 
 
 async viewCart_click(){
-   await this.viewCart_option.click()
+
+    const [newPage] = await Promise.all([
+        this.page.context().waitForEvent('page'), // Wait for new tab
+        this.viewCart_option.click() // Click action that opens a new window
+    ]);
+    
+    await newPage.waitForLoadState();
+    return new help_page(newPage);
+ //  await this.viewCart_option.click()
 }
 
 }

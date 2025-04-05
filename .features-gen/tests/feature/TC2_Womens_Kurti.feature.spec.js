@@ -24,7 +24,7 @@ test.use({
   $uri: ({}, use) => use('tests\\feature\\TC2_Womens_Kurti.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
   $beforeEachFixtures: ({ homepage }, use) => use({ homepage }),
-  $afterEachFixtures: ({ homepage }, use) => use({ homepage }),
+  $afterEachFixtures: ({ page }, use) => use({ page }),
 });
 
 const bddFileData = [ // bdd-data-start

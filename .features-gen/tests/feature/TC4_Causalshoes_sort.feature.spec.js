@@ -25,7 +25,7 @@ test.use({
   $uri: ({}, use) => use('tests\\feature\\TC4_Causalshoes_sort.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
   $beforeEachFixtures: ({ homepage }, use) => use({ homepage }),
-  $afterEachFixtures: ({ homepage }, use) => use({ homepage }),
+  $afterEachFixtures: ({ page }, use) => use({ page }),
 });
 
 const bddFileData = [ // bdd-data-start

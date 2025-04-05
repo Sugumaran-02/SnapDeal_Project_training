@@ -27,8 +27,8 @@ await homepage.goto_page();
 
 })
 
-After(async({homepage}) =>{
- //await homepage.close();
+After(async({page}) =>{
+ await page.close();
 //context.close();
 } )
 

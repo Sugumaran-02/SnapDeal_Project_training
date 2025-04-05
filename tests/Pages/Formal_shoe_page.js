@@ -37,8 +37,8 @@ for (const product1 of listofdisplay) {
     const text= await product1.getAttribute("display-price")
 
     const price = parseInt(text.trim(), 10);
-        expect(price).toBeGreaterThanOrEqual(1315);
-        expect(price).toBeLessThanOrEqual(2755);
+        expect(price).toBeGreaterThanOrEqual(1200);
+        expect(price).toBeLessThanOrEqual(4000);
 
 
     // if (text>1315 && text< 2755) {

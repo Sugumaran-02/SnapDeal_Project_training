@@ -9,3 +9,4 @@ And  the user clicks on the Men's Fashion category
 Then the user clicks on the Formal Shoes category
 And  only formal shoes are listed properly
  
+
