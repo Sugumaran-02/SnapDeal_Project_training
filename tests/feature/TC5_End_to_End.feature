@@ -1,4 +1,3 @@
-
 Feature: Verify that the user is able to add the product into cart
 
 Scenario Outline: User add the product into add to cart page
