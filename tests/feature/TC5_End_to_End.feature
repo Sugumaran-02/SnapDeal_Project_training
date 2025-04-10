@@ -1,6 +1,6 @@
-@only
+@smoke
 Feature: Verify that the user is able to add the product into cart
-@only
+@smoke
 Scenario Outline: User add the product into add to cart page
 
 Given the user is on the Snapdeal homepage
@@ -10,3 +10,4 @@ Then the user clicks on the search button
 And  the user select the one wallet
 Then the user add the wallet into Add to cart
 And  the product added to cart properly
+

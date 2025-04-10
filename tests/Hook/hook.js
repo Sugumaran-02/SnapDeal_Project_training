@@ -4,7 +4,6 @@ import { test } from "../Fixtures/fixture";
 
 
 const { Before, After, BeforeAll, AfterAll,  } = createBdd(test);
-//setDefaultTimeout(60 * 1000); // Set default timeout for steps
 
 let browser;
 let context;
@@ -27,14 +26,12 @@ await homepage.goto_page();
 
 })
 
-After(async({homepage}) =>{
- //await homepage.close();
-//context.close();
+After(async({page}) =>{
+ await page.close();
+
 } )
 
 AfterAll(async () =>{
   console.log("I am in after all");
-  
-    //context.close();
-    //browser.close();
+
 })

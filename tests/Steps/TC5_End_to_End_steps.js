@@ -26,14 +26,18 @@ await homepage.Search_button_click();
     await productPage.AddtoCart();
   }) ;   
 
-  When ('the product added to cart properly', async ({product_pages, addtocartpage, helppage})=>{
-  // // await product_pages.verify_product_add();
+  Then ('the product added to cart properly', async ({product_pages, addtocartpage, helppage})=>{
+ 
+    await productPage.verify_product_add();
+    await productPage.view_cart_click();
+  
+ //HELP PAGE
 
-  //  await product_pages. viewCart_click();
-   
- // await addtocartpage.check01();
-help_page=await addtocartpage.check01();
+// help_page=await addtocartpage.check01();
 
-await help_page.verify_text();
+// await help_page.verify_text();
 
   })
+
+
+ 

@@ -1,0 +1,103 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Verify that the user is able to sort the product >> User enters men's fashion and sort the sunglasses into price as high to low
+- Location: C:\Users\sugum\Documents\Snapdeal_training\.features-gen\tests\feature\TC4_Causalshoes_sort.feature.spec.js:6:7
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//*[@id="category1Data"]/div[3]/div/div/p[2]/a/span')
+    - locator resolved to <span class="linkTest">Sunglasses</span>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    102 × waiting for element to be visible, enabled and stable
+        - element is not visible
+      - retrying click action
+        - waiting 500ms
+
+    at sunglass_page.sunglassess (C:\Users\sugum\Documents\Snapdeal_training\tests\Pages\Sunglasses_page.js:15:34)
+    at Object.<anonymous> (C:\Users\sugum\Documents\Snapdeal_training\tests\Steps\TC_4_Casual_shoes_sort_steps.js:9:21)
+    at C:\Users\sugum\Documents\Snapdeal_training\.features-gen\tests\feature\TC4_Causalshoes_sort.feature.spec.js:10:5
+```
+
+# Test source
+
+```ts
+   1 | import { expect } from "@playwright/test";
+   2 |
+   3 | export class sunglass_page{
+   4 |
+   5 | constructor(page){
+   6 |     this.page=page;
+   7 |     this.sungalsses_option=page.locator('//*[@id="category1Data"]/div[3]/div/div/p[2]/a/span');
+   8 |     this.sort_dropdown= page.locator("//div[@class='sorting-sec animBounce']");
+   9 |     this.price_high_low= page.locator('//*[@id="content_wrapper"]/div[9]/div[2]/div/div[3]/div[2]/ul/li[3]');
+  10 |     this.sunglass_price_list= page.$$("//span[@class='lfloat product-price']")
+  11 |
+  12 | }
+  13 |
+  14 | async sunglassess(){
+> 15 |     await this.sungalsses_option.click();
+     |                                  ^ Error: locator.click: Target page, context or browser has been closed
+  16 | }
+  17 |
+  18 | async dropdown_sort_high_low(){
+  19 | await this.sort_dropdown.click();
+  20 | await this.price_high_low.click();
+  21 | }
+  22 |
+  23 |
+  24 | async order_of_price(){
+  25 |     
+  26 |         const listofdisplay= await this.page.$$("//span[@class='lfloat product-price']");
+  27 |         var i=10000;
+  28 |     for (const product1 of listofdisplay) {
+  29 |         const text= await product1.getAttribute("display-price")
+  30 |     
+  31 |         const price = parseInt(text.trim(), 10);
+  32 |         
+  33 |
+  34 |         if(i>=price){
+  35 |             console.log(" Some product price is "+ price)
+  36 |         
+  37 |         }
+  38 | i=price;
+  39 |
+  40 |         //    expect(price).toBeGreaterThanOrEqual(1315);
+  41 |          //   expect(price).toBeLessThanOrEqual(2755);
+  42 |     
+  43 |     
+  44 |         // if (text>1315 && text< 2755) {
+  45 |         //     const price = parseInt(text.trim(), 10);
+  46 |         //     expect(price).toBeGreaterThanOrEqual(1315);
+  47 |         //     expect(price).toBeLessThanOrEqual(2755);
+  48 |         // }else{
+  49 |         //     console.log(" Some product is not our limit")
+  50 |         // }
+  51 |         
+  52 |     }
+  53 |  
+  54 | }
+  55 |
+  56 | async getwaitsungalss(){
+  57 |     await this.page.waitForLoadState('domcontentloaded'); // Wait for page load
+  58 |     await this.sungalsses_option.waitFor({ state: 'visible' }); // Wait for element to be visible  
+  59 | }
+  60 |
+  61 | }
+```

@@ -26,29 +26,30 @@ async moveSlider(handle, moveDistance) {
     } else {
         console.error('Slider handle not found');
     }
+
+  
 }
 
 
 
 async verify_product_limitprice(){
+    const from_price=await this.page.locator('//span[@class="from-price-text"]').innerText()
+    const To_price=await this.page.locator('//span[@class="to-price-text"]').innerText()
+    
+     const min_price = parseInt(from_price.replace(/[^\d]/g, ''), 10);
+    const max_price = parseInt(To_price.replace(/[^\d]/g, ''), 10);
+    console.log("From price is" + min_price + "To price is" + max_price);
+
     const listofdisplay= await this.page.$$("//span[@class='lfloat product-price']");
 
 for (const product1 of listofdisplay) {
     const text= await product1.getAttribute("display-price")
 
     const price = parseInt(text.trim(), 10);
-        expect(price).toBeGreaterThanOrEqual(1315);
-        expect(price).toBeLessThanOrEqual(2755);
+        expect(price).toBeGreaterThanOrEqual(min_price);
+        expect(price).toBeLessThanOrEqual(max_price);
 
 
-    // if (text>1315 && text< 2755) {
-    //     const price = parseInt(text.trim(), 10);
-    //     expect(price).toBeGreaterThanOrEqual(1315);
-    //     expect(price).toBeLessThanOrEqual(2755);
-    // }else{
-    //     console.log(" Some product is not our limit")
-    // }
-    
 }
 }
 
@@ -59,8 +60,8 @@ async waitgetprice(){
     await this.priceDownHandle.waitFor({ state: 'visible' });
 }
 
-async funforgit(){
-console.log("Just to commit")
-}
+// async funforgit(){
+// console.log("Just to commit")
+// }
 
 }

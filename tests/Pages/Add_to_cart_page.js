@@ -13,20 +13,6 @@ this.frame2=page.locator("//div[@class='mess-container']")
 
 }
 
-async verify_product_add(){
-    const text_verify= await this.verify_message.innerText();
-    expect(text_verify).toContain('added to your cart')
-}
-
-async viewCart_click(){
- 
-    const element2= this.frame1.locator('//*[@id="cartProductContainer"]/div/div[2]/div[2]/div/div[2]/div').click();
-
-    await expect(element2).toBeEnabled()
-//   await this.viewCart_option.waitFor({state : 'hidden'})
-//   await this.viewCart_option.locator('//*[@id="cartProductContainer"]/div/div[2]/div[2]/div/div[2]/div').click({ force: true })
- }
-
  async check01(){
 
     const [newPage] = await Promise.all([
@@ -40,8 +26,5 @@ async viewCart_click(){
  }
 
 
-async viewCart_click(){
-   await this.viewCart_option.click()
-}
 
 }

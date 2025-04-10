@@ -1,0 +1,2 @@
+I am snapdeal page
+I am list tab

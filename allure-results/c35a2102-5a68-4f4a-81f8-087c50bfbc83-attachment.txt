@@ -1,0 +1,5 @@
+I am snapdeal page
+This in formal shoes 
+Moved slider by 50 pixels
+Moved slider by -50 pixels
+From price is1180To price is2864
