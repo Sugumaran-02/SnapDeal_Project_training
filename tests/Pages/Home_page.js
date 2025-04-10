@@ -11,7 +11,6 @@ this.context;
 this.Account_Tab= page.locator("//span[contains(text(),'Sign In')]");
 this.Search_box= page.getByPlaceholder('Search products & brands');
 this.Search_button= page.locator('//*[@id="sdHeader"]/div[4]/div[2]/div/div[2]/button');
-//this.Search_button= page.getByRole('button', { name: ' Search' });
 this.pincode_box= page.getByPlaceholder('Enter your pincode');
 this.mens_fashion= page.locator('//*[@id="leftNavMenuRevamp"]/div[1]/div[2]/ul/li[1]/a/span[2]');
 this.formal_shoes= page.locator('//*[@id="category1Data"]/div[1]/div/div/p[6]/a/span');
@@ -42,9 +41,8 @@ async Account_Tab_verify(){
 
 async Search_product(){
     await this.Search_box.waitFor({ state: 'visible' }); 
-    //await this.Search_box.click();
-   await this.Search_box.fill("JND Brown Wallet men");
-   //await this.page.keyboard.press('Enter');
+      await this.Search_box.fill("JND Brown Wallet men");
+   
 }
 
 async Search_button_click(){

@@ -35,7 +35,8 @@ export default defineConfig({
  workers:1,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+ // reporter: 'html',
+ reporter:[["line"], ["allure-playwright"], ['html']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   timeout: 60000,
   use: {
@@ -45,13 +46,19 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     navigationTimeout: 75000, // 45 seconds for page navigation
+    headless: false,
+    viewport: null, // This sets it to full screen
+    launchOptions: {
+      args: ['--start-maximized'], // Opens browser in full screen
+   },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+     // use: { ...devices['Desktop Chrome'] }, //disable for maximized the browser
+   
     },
 
     // {

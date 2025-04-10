@@ -1,5 +1,6 @@
+@smoke
 Feature: Verify that the user is able to use the price slidebar and check the price
-
+@smoke
  
 Scenario Outline: User able to silde the price and verify the product shown within limit
 

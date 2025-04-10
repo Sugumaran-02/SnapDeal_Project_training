@@ -1,0 +1,124 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Verify that the user is able to search for a Kurti product >> User enters women's fashion and search the Kurti
+- Location: C:\Users\sugum\Documents\Snapdeal_training\.features-gen\tests\feature\TC2_Womens_Kurti.feature.spec.js:6:7
+
+# Error details
+
+```
+Error: locator.isVisible: Target page, context or browser has been closed
+Call log:
+    - checking visibility of getByRole('button', { name: 'NOT NOW' })
+
+    at Homepage.popupinteraction (C:\Users\sugum\Documents\Snapdeal_training\tests\Pages\Home_page.js:91:26)
+    at Object.<anonymous> (C:\Users\sugum\Documents\Snapdeal_training\tests\Steps\Tc1_Search_action_steps.js:17:16)
+    at C:\Users\sugum\Documents\Snapdeal_training\.features-gen\tests\feature\TC2_Womens_Kurti.feature.spec.js:8:5
+```
+
+# Test source
+
+```ts
+   1 | import {expect } from "playwright/test";
+   2 | const { chromium } = require('playwright');
+   3 |
+   4 |
+   5 | export class Homepage{
+   6 |
+   7 |     constructor(page){
+   8 | this.page=page;
+   9 | this.browser;
+  10 | this.context;
+  11 | this.Account_Tab= page.locator("//span[contains(text(),'Sign In')]");
+  12 | this.Search_box= page.getByPlaceholder('Search products & brands');
+  13 | this.Search_button= page.locator('//*[@id="sdHeader"]/div[4]/div[2]/div/div[2]/button');
+  14 | this.pincode_box= page.getByPlaceholder('Enter your pincode');
+  15 | this.mens_fashion= page.locator('//*[@id="leftNavMenuRevamp"]/div[1]/div[2]/ul/li[1]/a/span[2]');
+  16 | this.formal_shoes= page.locator('//*[@id="category1Data"]/div[1]/div/div/p[6]/a/span');
+  17 | this.verifyshoe_page= page.locator("//h1");
+  18 | this.womens_fashion= page.locator('//span[contains(text(),"Women")]')
+  19 | this.kurtas_kurti= page.locator('//*[@id="category2Data"]/div[1]/div/div/p[3]/a/span')
+  20 |
+  21 | this.notnow=page.getByRole('button', { name: 'NOT NOW' })
+  22 |
+  23 |
+  24 |     }
+  25 |
+  26 |     async goto_page(){
+  27 |         // const browser = await chromium.launch({ headless: false });
+  28 |         // const context = await browser.newContext();
+  29 |         // const page = await context.newPage();
+  30 |         await this.page.goto("https://www.snapdeal.com/");
+  31 |
+  32 |         // await this.page.goto("https://www.snapdeal.com/", 
+  33 |         //     { waitUntil: "domcontentloaded" });
+  34 |         // await this.page.waitForLoadState("domcontentloaded");  // Ensure all requests are done
+  35 |     }
+  36 |
+  37 | async Account_Tab_verify(){
+  38 |   // await this.page.pause();
+  39 |  await expect(this.Account_Tab).toBeVisible();
+  40 | }
+  41 |
+  42 | async Search_product(){
+  43 |     await this.Search_box.waitFor({ state: 'visible' }); 
+  44 |       await this.Search_box.fill("JND Brown Wallet men");
+  45 |    
+  46 | }
+  47 |
+  48 | async Search_button_click(){
+  49 |     await this.Search_button.waitFor({ state: 'visible' }); 
+  50 |    // await this.Search_button.dblclick();
+  51 |     await this.page.keyboard.press('Enter');
+  52 |     await this.page.keyboard.press('Enter');
+  53 |     }
+  54 |
+  55 | async product_verify(){
+  56 |
+  57 |    const listofelement =await this.page.$$("//p[@class='product-title ']");
+  58 |     for (const element1 of listofelement) {
+  59 |         
+  60 |         const text= await element1.innerText();
+  61 |         console.log("Text is"+ text);
+  62 |         expect(text).toContain('Formal Shoes');
+  63 |                
+  64 |     }
+  65 | }
+  66 |  async mens_fashion_option(){
+  67 |     await this.mens_fashion.click();
+  68 |  }
+  69 |
+  70 |  async formal_shoe_option(){
+  71 |     await this.formal_shoes.click();
+  72 |  }
+  73 |
+  74 | async pincode(){
+  75 |     await this.pincode_box.fill("624204")
+  76 | }
+  77 |
+  78 | async womens_fashion_tab(){
+  79 |     await this.womens_fashion.click();
+  80 | }
+  81 |
+  82 | async kurat_kurti_tab(){
+  83 |     await this.kurtas_kurti.click({ force: true });
+  84 | }
+  85 |
+  86 | async pageclose(){
+  87 |     await this.page.close();
+  88 | }
+  89 |
+  90 | async popupinteraction(){
+> 91 |     if(await this.notnow.isVisible()){
+     |                          ^ Error: locator.isVisible: Target page, context or browser has been closed
+  92 |         await this.notnow.click();
+  93 |     }
+  94 | }
+  95 |
+  96 | }
+```

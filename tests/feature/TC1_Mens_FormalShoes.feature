@@ -1,6 +1,6 @@
-
+@smoke
 Feature: Verify that the user is able to search for a product
-
+@smoke
 Scenario Outline: User enters men's fashion and search the formal shoes
 
 Given the user is on the Snapdeal homepage

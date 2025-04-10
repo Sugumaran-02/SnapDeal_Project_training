@@ -25,18 +25,3 @@ export const test= base.extend({
 
 
 
-// import { test as base  } from "playwright-bdd";
-
-// import * as Pages from './Pages'
-
-// const {Loginpage, Dashboardpage }= Pages
-
-// const createtestfunction= (pageclass) => async ({page}, use) =>{
-//     await use(new pageclass(page));
-// }
-
-
-// export const test= base.extend({
-//     loginPage: createtestfunction(Loginpage),
-//     dashboard: createtestfunction(Dashboardpage)
-// });
