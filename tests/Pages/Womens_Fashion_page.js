@@ -32,4 +32,3 @@ async product_kuri_verify(){
 }
 
 
-//span[contains(text(),"Women's Fashion")]

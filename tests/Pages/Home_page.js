@@ -1,5 +1,6 @@
 import {expect } from "playwright/test";
 const { chromium } = require('playwright');
+const testdata= JSON.parse(JSON.stringify(require("../utilities/testdata.json")))
 
 
 export class Homepage{
@@ -27,7 +28,9 @@ this.notnow=page.getByRole('button', { name: 'NOT NOW' })
         // const browser = await chromium.launch({ headless: false });
         // const context = await browser.newContext();
         // const page = await context.newPage();
-        await this.page.goto("https://www.snapdeal.com/");
+        await this.page.goto(testdata.URL);
+        ;
+        
 
         // await this.page.goto("https://www.snapdeal.com/", 
         //     { waitUntil: "domcontentloaded" });
@@ -41,7 +44,8 @@ async Account_Tab_verify(){
 
 async Search_product(){
     await this.Search_box.waitFor({ state: 'visible' }); 
-      await this.Search_box.fill("JND Brown Wallet men");
+     
+    await this.Search_box.fill(testdata.Product_name.Wallet_name);
    
 }
 
@@ -72,7 +76,7 @@ async product_verify(){
  }
 
 async pincode(){
-    await this.pincode_box.fill("624204")
+    await this.pincode_box.fill(testdata.Pincode)
 }
 
 async womens_fashion_tab(){

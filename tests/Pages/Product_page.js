@@ -1,5 +1,6 @@
 import { Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
+const testdata= JSON.parse(JSON.stringify(require("../utilities/testdata.json")))
 
 
 export class productpage{
@@ -16,7 +17,7 @@ this.verify_message=page.locator("//span[@class='mess-text']")
 
 async checkpincode(){
     
- await   this.pincode.fill("624204")
+ await   this.pincode.fill(testdata.Pincode)
 await   this.pincode_check_button.click();
   }
 
