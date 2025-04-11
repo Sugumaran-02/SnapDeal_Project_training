@@ -46,8 +46,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     navigationTimeout: 75000, // 45 seconds for page navigation
-    headless: false,
-    viewport: null, // This sets it to full screen
+     viewport: null, // This sets it to full screen
     launchOptions: {
       args: ['--start-maximized'], // Opens browser in full screen
    },
