@@ -92,6 +92,7 @@ async pageclose(){
 }
 
 async popupinteraction(){
+    
     if(await this.notnow.isVisible()){
         await this.notnow.click();
     }
