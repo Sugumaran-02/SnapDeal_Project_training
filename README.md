@@ -1,20 +1,20 @@
-🛍️ Snapdeal Automation Project
+🛍️ Snapdeal Automation Project:
 Automated end-to-end UI testing for Snapdeal using Playwright, JavaScript, and Cucumber BDD.
 
-✅ Features Covered
+✅ Features Covered:
         🔎 Product search functionality
         👗 Kurti product search validation
         💰 Price filter using the slider
         🔃 Product sorting feature
         🛒 Adding product to cart
 
-💻 Tech Stack
+💻 Tech Stack:
        -> Playwright
        -> JavaScript (ES6)
        -> Cucumber BDD
        -> Node.js
 
-🧩 Framework Type
+🧩 Framework Type:
 Hybrid Test Automation Framework
 
 Combines:
@@ -23,7 +23,7 @@ Combines:
 ✅ Data-Driven Testing
 ✅ Fixture Factory (Dependency Injection)
 
-⚙️ Framework Architecture
+⚙️ Framework Architecture:
 
 Cucumber BDD:
 Write readable tests using Gherkin syntax. Step definitions are reusable and separated from logic.
