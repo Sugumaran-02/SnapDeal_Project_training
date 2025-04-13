@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
 const featureFiles = [
   'tests/feature/TC5_End_to_End.feature',

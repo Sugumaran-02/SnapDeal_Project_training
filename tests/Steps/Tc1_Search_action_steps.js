@@ -14,28 +14,50 @@ console.log("I am snapdeal page")
   });
   
   When('the homepage is loaded properly', async ({homepage}) => {
-await homepage.popupinteraction();
+try {
+  await homepage.popupinteraction();
 await homepage.Account_Tab_verify();
-
+} catch (error) {
+  console.error('Step failed:', error.message)
+ await homepage.page.screenshot({ path: 'Error_Screenshots/screenshot4.png', fullPage: true });
+}
 
   });
   
   When("the user clicks on the Men's Fashion category", async ({homepage}) => {
-
-    await homepage.mens_fashion_option();
+try {
+  await homepage.mens_fashion_option();
+} catch (error) {
+  console.error('Step failed:', error.message)
+ await homepage.page.Screenshot({path:'Error_Screenshots/screenshot2.png', fullPage: true})
+}
+  
   });
   
   Then('the user clicks on the Formal Shoes category', async ({homepage}) => {
     
-    await homepage.formal_shoe_option();
-    console.log("This in formal shoes ");
-    
+      
+    try {
+      await homepage.formal_shoe_option();
+      console.log("This in formal shoes ");
+      
+    } catch (error) {
+      console.error('Step failed:', error.message)
+    await  homepage.page.screenshot({path:'Error_Screenshots/screenshot3.png', fullPage: true})
+    }
    
   });
   
   Then('only formal shoes are listed properly', async ({homepage}) => {
   
-    await homepage.product_verify();
+try {
+  await homepage.product_verify();
+} catch (error) {
+  console.error('Step failed:', error.message)
+  await homepage.page.screenshot({ path: 'Error_Screenshots/screenshot4.png', fullPage: true });
+}
+
+    
     //await homepage.close();
   
   });

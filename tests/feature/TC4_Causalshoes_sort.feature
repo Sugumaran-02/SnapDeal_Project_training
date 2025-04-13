@@ -1,6 +1,5 @@
-@smoke
 Feature: Verify that the user is able to sort the product
-@smoke
+
 Scenario Outline: User enters men's fashion and sort the sunglasses into price as high to low
 
 Given the user is on the Snapdeal homepage

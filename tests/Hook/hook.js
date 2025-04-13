@@ -1,6 +1,7 @@
 import { chromium, firefox } from '@playwright/test';
 import { createBdd } from 'playwright-bdd';
 import { test } from "../Fixtures/fixture";
+import path from 'path';
 
 
 const { Before, After, BeforeAll, AfterAll,  } = createBdd(test);
@@ -22,7 +23,15 @@ let page;
 // });
 
 Before(async ({homepage})=>{
-await homepage.goto_page();
+
+  try {
+    await homepage.goto_page();
+  } catch (error) {
+    console.error('Step failed:', error.message)
+homepage.screenshot({path:'Error_Screenshots/screenshot.png', fullPage: true})
+
+  }
+
 
 })
 

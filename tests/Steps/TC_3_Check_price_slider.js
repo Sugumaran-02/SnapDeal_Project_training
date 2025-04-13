@@ -6,14 +6,28 @@ const {Given, Then , When } = createBdd(test)
 
 
 When('the user slide the price up and down', async ({formalshoepage}) => {
-await formalshoepage.waitgetprice();
 
-
+try {
+  await formalshoepage.waitgetprice();
    await formalshoepage.moveSlider(formalshoepage.priceUpHandle, 50)
    await formalshoepage.moveSlider(formalshoepage.priceDownHandle, -50)
+} catch (error) {
+  console.error('Step failed', error.message)
+  await formalshoepage.page.screenshot({path:'Error_Screenshots/Slider.png', fullPage:true})
+  
+}
+
+
   });
   
   Then('the products are listed within the mentioned price limit', async ({formalshoepage}) => {
-await formalshoepage.verify_product_limitprice();
+
+try {
+  await formalshoepage.verify_product_limitprice();
+} catch (error) {
+  console.error('Step failed', error.message)
+  await formalshoepage.page.screenshot({path:'Error_Screenshots/Slider.png', fullPage:true})
+}
+
   });
   
